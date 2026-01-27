@@ -1,0 +1,41 @@
+.footer {
+  flex-shrink: 0;
+  background: linear-gradient(90deg, #0a58ca, #0d6efd);
+  color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.footer .container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+.footer a:hover {
+  color: #ffc107;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.footer hr {
+  width: 60%;
+  margin: 1rem auto;
+  border: 0;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+.footer small {
+  display: block;
+  margin-top: 1rem;
+  color: rgba(255,255,255,0.75);
+}
