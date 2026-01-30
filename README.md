@@ -1,4 +1,4 @@
-#CONSULTORIA DE DESARROLLO
+# CONSULTORIA DE DESARROLLO
 
 Aplicación web desarrollada en PHP para la gestión y consulta de información.
 
