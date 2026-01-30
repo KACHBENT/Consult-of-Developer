@@ -34,9 +34,9 @@ Dompdf (PDF)
 
 ## 📂 Estructura del Proyecto
 Consult-of-Developer-main/
-├── app/            Controladores, modelos y vistas
-├── public/         Archivos públicos (index.php, assets)
-├── writable/       Cache, logs y archivos temporales
-├── vendor/         Dependencias Composer
+app/            Controladores, modelos y vistas
+public/         Archivos públicos (index.php, assets)
+writable/       Cache, logs y archivos temporales
+### vendor/         Dependencias Composer
 ├── .env            Configuración de entorno y BD
 └── composer.json   Dependencias del proyecto
