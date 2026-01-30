@@ -35,13 +35,10 @@ Dompdf (PDF)
 ## 📂 Estructura del Proyecto
 
 ```plaintext
-📁 asistencia-system/
-├─ 📁 app/                # Controladores, modelos y vistas (MVC)
-│  ├─ 📁 Controllers/
-│  ├─ 📁 Models/
-│  └─ 📁 Views/
-├─ 📁 public/             # Archivos accesibles desde el navegador
-├─ 📁 writable/           # Archivos de logs y caché
-├─ 📁 database/           # Scripts y backups de la base de datos
-├─ .env                  # Configuración del entorno
-└─ README.md            # Documentación del proyecto
+Consult-of-Developer-main/
+├── app/            # Controladores, modelos y vistas
+├── public/         # Archivos públicos (index.php, assets)
+├── writable/       # Cache, logs y archivos temporales
+├── vendor/         # Dependencias Composer
+├── .env            # Configuración de entorno y BD
+└── composer.json   # Dependencias del proyecto
