@@ -23,7 +23,9 @@
 .sepia {
   filter: sepia(100%);
 }
-
+.black-filter {
+  filter: brightness(0) saturate(100%);
+}
 .saturate {
   filter: saturate(5);
 }

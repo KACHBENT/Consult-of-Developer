@@ -16,8 +16,8 @@ $routes->get('/', 'Home::index');
 
 
 // Registro/Login normales
-$routes->get('acceso/register-person', 'Home::registerPerson');
-$routes->post('acceso/register-person', 'AccesoController::registerPerson');
+$routes->get('acceso/register-person', 'AccesoController::registerShowForm');
+$routes->post('acceso/register', 'AccesoController::register');
 $routes->get('acceso/login', 'AccesoController::loginShowForm');
 $routes->post('acceso/login', 'AccesoController::login');
 $routes->get('acceso/logout', 'AccesoController::logout');

@@ -1,25 +1,28 @@
- document.addEventListener('DOMContentLoaded', function () {
-    var modalEl = document.getElementById('modalClavePaseLista');
-    if (!modalEl) return;
+  (function () {
+    const $ = (sel) => document.querySelector(sel);
+    const pass = $("#passInput");
+    const btn  = $("#btnToggle");
+    const icon = $("#toggleIcon");
 
-    var modal = new bootstrap.Modal(modalEl);
-    modal.show();
+    if (btn && pass && icon) {
+      btn.addEventListener("click", () => {
+        const showing = pass.type === "text";
+        pass.type = showing ? "password" : "text";
+        const viewIcon = btn.dataset.iconView;
+        const hideIcon = btn.dataset.iconHide;
+        icon.src = showing ? hideIcon : viewIcon;
+        icon.alt = showing ? "Ocultar" : "Mostrar";
+        btn.setAttribute("aria-pressed", String(!showing));
+      });
+    }
 
-    var inputClave = document.getElementById('clavePaseListaInput');
-    var btnCopiar = document.getElementById('btnCopiarClavePaseLista');
-
-    if (btnCopiar && inputClave) {
-      btnCopiar.addEventListener('click', function () {
-        inputClave.select();
-        inputClave.setSelectionRange(0, 99999); // soporte móvil
-
-        try {
-          document.execCommand('copy');
-        } catch (e) {
-          if (navigator.clipboard && window.isSecureContext) {
-            navigator.clipboard.writeText(inputClave.value);
-          }
+    const form = $("#formLogin");
+    if (form) {
+      form.addEventListener("submit", (e) => {
+        if (!form.checkValidity()) {
+          e.preventDefault();
+          form.classList.add("was-validated");
         }
       });
     }
-  });
+  })();
