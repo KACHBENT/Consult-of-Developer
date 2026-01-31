@@ -13,7 +13,7 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
 });
 */
 $routes->get('/', 'Home::index');
-
+$routes->get('/enrique', 'Home::enrique');
 
 // Registro/Login normales
 $routes->get('acceso/register-person', 'AccesoController::registerShowForm');
