@@ -13,5 +13,9 @@ class Home extends BaseController
     {
         return view('EnriquePortafolio/iniE');
     }
+    public function brandon(): string
+    {
+        return view('BrandonPortafolio/iniB');
+    }
 
 }
