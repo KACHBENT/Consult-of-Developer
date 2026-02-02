@@ -9,4 +9,13 @@ class Home extends BaseController
         return view('Inicio/inicio');
     }
 
+    public function enrique(): string
+    {
+        return view('EnriquePortafolio/iniE');
+    }
+    public function brandon(): string
+    {
+        return view('BrandonPortafolio/iniB');
+    }
+
 }
