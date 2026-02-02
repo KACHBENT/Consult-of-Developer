@@ -98,7 +98,7 @@ body {
 
 /* ====================== NAVBAR ====================== */
 .navbar {
-  background-color: var(--color-menta);
+    background: linear-gradient(160deg, #107866, #145084) !important;
   color: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, .15);
 }

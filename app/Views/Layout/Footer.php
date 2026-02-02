@@ -17,7 +17,7 @@
       <div class="col-md-4">
         <h6 class="fw-semibold">Contacto</h6>
         <ul class="list-unstyled small text-white-50">
-          <li><i class="bi bi-envelope"></i> contacto@technova.com</li>
+          <li><i class="bi bi-envelope"></i> consultingtechnova4@gmail.com</li>
           <li><i class="bi bi-telephone"></i> 55 1234 5678</li>
           <li><i class="bi bi-geo-alt"></i> Ciudad de México</li>
         </ul>

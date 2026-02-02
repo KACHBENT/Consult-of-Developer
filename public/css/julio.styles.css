@@ -1,0 +1,81 @@
+body {
+	background: linear-gradient(133deg, rgb(0, 0, 0), rgba(20, 175, 136, 0.83));
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.container-imagen {
+	justify-content: center;
+	padding: 3em 4em;
+	border-radius: 5px;
+	border: 2px solid transparent;
+	white-space: inherit;
+	width: 50px;
+	height: 50px;
+}
+
+.image-content {
+	border: 2px solid transparent;
+	border-radius: 28px;
+	width: 90%;
+}
+
+.bg-header-custom{
+	background: linear-gradient(231deg, rgb(0, 0, 0), rgba(20, 175, 136, 0.83)) !important;
+	align-items: center;
+	align-content: center;
+}
+
+.content-info{
+	padding: 1.5em 3.5em;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li::before {
+  content: "➤";
+  color: #299845d5;
+  padding-right: 8px;
+}
+
+span{
+	font-style: normal;
+}
+
+.icon-users{
+	background:linear-gradient(38deg, rgb(0, 0, 0), rgb(146 130 130 / 83%));
+    border: 2px solid white;
+    border-radius: 100%;
+    padding: 5px;
+}
+
+.card{
+	border-radius: 1.25rem !important;
+}
+
+.card-header:first-child {
+    border-radius: calc(1.25rem - 1px) calc(1.25rem - 1px) 0 0 !important;
+}
+
+.icon-github{
+	background:linear-gradient(38deg, rgb(0, 0, 0), rgb(146 130 130 / 83%));
+    border: 2px solid white;
+    border-radius: 100%;
+    padding: 5px;
+	width: 40px;
+    height: 40px;
+}
+
+.font-info-title-commad{
+	text-decoration: underline;
+	text-align: start;
+	font-style: normal;
+}
+
+.font-info-commad{
+	text-align: justify;
+	font-style: italic;
+}

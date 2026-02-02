@@ -14,7 +14,7 @@
 
   <!-- COLUMNA IZQUIERDA -->
   <aside class="left-column">
-    <img src="<?= base_url('img/perfil.jpg') ?>" class="profile-img">
+    <img src="<?= base_url('images/team/brandon.jpg') ?>" class="profile-img">
 
     <p class="about">
       Soy una persona comprometida con el desarrollo y el desempeño en el entorno laboral.

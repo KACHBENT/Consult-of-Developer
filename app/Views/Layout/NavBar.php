@@ -1,93 +1,99 @@
 <?php
-$session = session();
-$user = $session->get('usuario') ?? [];
-$rol = $user['rol'] ?? 'CLIENTE';
+$user = session()->get('usuario') ?? [];
+$isLoggedIn = (bool) (session()->get('isLoggedIn') ?? false);
 ?>
 
 <?= $this->section('navbar') ?>
 
 <!-- Navbar superior -->
 <nav class="navbar bg-custom px-3 sticky-top">
-  <button class="btn btn-light me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
-    <img src="<?= base_url('images/icons/menu.svg') ?>" width="20">
+  <button class="btn btn-light me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
+    aria-controls="sidebar">
+    <img src="<?= base_url('images/icons/menu.svg') ?>" class="black-filter" alt="menu" width="20" height="20">
   </button>
+  <a class="navbar-brand content-logo-business d-flex align-items-center gap-2 text-white fw-semibold text-decoration-none"
+    href="<?= site_url('/') ?>" aria-label="Ir al inicio de AppForrajes">
+    <picture class="brand-logo d-inline-block rounded-2 overflow-hidden">
+      <source srcset="<?= base_url('images/Icono-minimalista-pa.webp') ?>" type="image/webp">
+      <img src="<?= base_url('images/Icono-minimalista-pa.webp') ?>" width="36" height="36" loading="lazy"
+        alt="AppForrajes">
+    </picture>
 
-  <a class="navbar-brand text-white fw-semibold text-decoration-none" href="<?= site_url('/') ?>">
-    TechNova Consulting
+    <span class="d-flex flex-column lh-1">
+      <span class="brand-title">TechNova Consulting</span>
+    </span>
   </a>
 </nav>
 
-<!-- Sidebar -->
-<nav class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="sidebar">
-  <div class="offcanvas-header border-bottom">
-    <h5 class="offcanvas-title">Menú</h5>
-    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+<!-- Sidebar lateral -->
+<nav class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="sidebarLabel">Menú principal</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
   </div>
 
   <div class="offcanvas-body d-flex flex-column">
-
-    <!-- Perfil -->
-    <div class="d-flex align-items-center gap-2 mb-3 p-2 rounded bg-black bg-opacity-25">
+    <!-- Perfil del usuario -->
+    <div class="d-flex align-items-center gap-2 mb-3 p-2 rounded bg-black bg-opacity-50">
       <i class="bi bi-person-circle fs-3"></i>
       <div>
-        <div class="fw-semibold"><?= esc($user['nombre'] ?? 'Invitado') ?></div>
-        <small class="text-white-50"><?= esc($user['email'] ?? '') ?></small>
+        <div class="fw-semibold">
+          <?= esc($isLoggedIn ? ($user['nombre'] ?? 'Invitado') : 'Invitado') ?>
+        </div>
+        <small class="text-white-50">
+          <?= esc($isLoggedIn ? ($user['email'] ?? 'sin correo') : 'sin correo') ?>
+        </small>
       </div>
     </div>
 
+    <!-- Navegación -->
     <nav class="nav flex-column gap-1 flex-grow-1">
-
-      <!-- INICIO -->
-      <a class="nav-link text-white d-flex align-items-center gap-2" href="<?= base_url('/') ?>">
-        <i class="bi bi-house"></i> Inicio
+      <a class="nav-link nav-link-function text-white d-flex align-items-center gap-2 active"
+        href="<?= base_url('/') ?>">
+        <img src="<?= base_url('images/icons/home.svg') ?>" class="white" alt="inicio" width="30" height="30"> Inicio
       </a>
-
-      <!-- CLIENTE -->
-      <?php if ($rol === 'CLIENTE'): ?>
-        <a class="nav-link text-white" href="<?= base_url('servicios') ?>">
-          <i class="bi bi-briefcase"></i> Servicios
-        </a>
-
-        <a class="nav-link text-white" href="<?= base_url('equipo') ?>">
-          <i class="bi bi-people"></i> Nuestro equipo
-        </a>
-
-        <a class="nav-link text-white" href="<?= base_url('portafolio') ?>">
-          <i class="bi bi-folder"></i> Portafolio
-        </a>
-
-        <a class="nav-link text-white" href="<?= base_url('contacto') ?>">
-          <i class="bi bi-envelope"></i> Contacto
-        </a>
-      <?php endif; ?>
-
-      <!-- ADMIN -->
-      <?php if ($rol === 'ADMIN'): ?>
-        <hr class="border-secondary">
-
-        <div>
-          <button class="btn btn-toggle w-100 text-start text-white d-flex align-items-center gap-2"
-            data-bs-toggle="collapse" data-bs-target="#adminMenu">
-            <i class="bi bi-gear"></i> Administración
-            <i class="bi bi-chevron-down ms-auto"></i>
-          </button>
-
-          <div class="collapse ps-3 mt-1" id="adminMenu">
-            <a class="nav-link text-white-50" href="<?= base_url('admin/servicios') ?>">Servicios</a>
-            <a class="nav-link text-white-50" href="<?= base_url('admin/miembros') ?>">Miembros</a>
-            <a class="nav-link text-white-50" href="<?= base_url('admin/usuarios') ?>">Usuarios</a>
-            <a class="nav-link text-white-50" href="<?= base_url('admin/contacto') ?>">Mensajes</a>
-            <a class="nav-link text-white-50" href="<?= base_url('admin/movimientos') ?>">Movimientos</a>
-          </div>
+      <div>
+        <button
+          class="btn btn-toggle nav-link-function align-items-center rounded text-start w-100 text-white d-flex gap-2"
+          data-bs-toggle="collapse" data-bs-target="#submenu1" aria-expanded="false">
+          <img src="<?= base_url('images/icons/supervised_user.svg') ?>" class="white" alt="inicio" width="30"
+            height="30"> Portafolios
+          <i class="bi bi-chevron-down ms-auto"></i>
+        </button>
+        <div class="collapse ps-4 mt-1" id="submenu1">
+          <a class="nav-link nav-link-list text-white" href="<?= base_url('/brandon') ?>">Brandon</a>
+          <a class="nav-link nav-link-list text-white" href="<?= base_url('/enrique') ?>">Enrique</a>
+          <a class="nav-link nav-link-list text-white" href="<?= base_url('/julio') ?>">Julio</a>
+          <!--  
+          <a class="nav-link text-white-50" href=" <?= base_url('/') ?>">Reportes</a>  -->
         </div>
-      <?php endif; ?>
+      </div>
 
-      <hr class="border-secondary">
+      <!-- Configuración de Catalogos -->
 
-      <a class="nav-link text-danger" href="<?= site_url('acceso/logout') ?>">
-        <i class="bi bi-box-arrow-right"></i> Cerrar sesión
+      <div>
+        <button
+          class="btn btn-toggle nav-link-function align-items-center rounded text-start w-100 text-white d-flex gap-2"
+          data-bs-toggle="collapse" data-bs-target="#Catalogos" aria-expanded="false">
+          <img src="<?= base_url('images/icons/category.svg') ?>" class="white" alt="inicio" width="30" height="30">
+          Contactanos
+          <i class="bi bi-chevron-down ms-auto"></i>
+        </button>
+
+        <div class="collapse ps-4 mt-1" id="Catalogos">
+          <a class="nav-link nav-link-list text-white" href="<?= base_url('contacto') ?>">
+            Registro de solicitud
+          </a>
+        </div>
+      </div>
+
+
+      <div>
+        
+      <a class="nav-close nav-link text-white d-flex align-items-center gap-2" href="<?= site_url('acceso/logout') ?>">
+        <img src="<?= base_url('images/icons/exit_to_app.svg') ?>" class="white" alt="cerrar sesión" width="30"
+          height="30"> Cerrar sesión
       </a>
-
     </nav>
   </div>
 </nav>
