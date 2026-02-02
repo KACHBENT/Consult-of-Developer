@@ -18,6 +18,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('footer') ?>
+<?= $this->include('layout/Footer') ?>
 <?= $this->endSection() ?>
 
 <?= $this->section('scripts') ?>
